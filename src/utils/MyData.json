@@ -1,0 +1,19 @@
+[
+    {
+        "id": 0,
+        "title": "标题",
+        "content": "内容描述",
+        "start-date": "1697190084278",
+        "end-date": "1697190084278",
+        "location": "位置",
+        "address": "地址",
+        "author": "作者",
+        "category": "分类",
+        "tags": [
+            "标签1",
+            "标签2"
+        ],
+        "type": 0,
+        "status": 0
+    }
+]
