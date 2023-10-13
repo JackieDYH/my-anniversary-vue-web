@@ -1,0 +1,29 @@
+// 字体配置
+
+@font-face {
+    font-family: 'Highlander-3';
+    src: url("~@/assets/fonts/Highlander-3.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Segoe UI";
+    src: url("~@/assets/fonts/segoeui.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "UnidreamLED";
+    src: url("~@/assets/fonts/UnidreamLED.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "MiSans";
+    src: url("~@/assets/fonts/MiSans-Regular.subset.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+  }
