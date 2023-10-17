@@ -5,6 +5,7 @@
 ```
 npm install pinia
 npm i pinia-plugin-persist //数据持久化
+npm install dayjs
 
 npm install element-plus --save
 npm install -D unplugin-vue-components unplugin-auto-import//自动导入
