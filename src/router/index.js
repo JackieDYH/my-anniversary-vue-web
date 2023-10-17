@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2023-06-25 09:58:10
- * @LastEditTime: 2023-10-13 16:59:04
+ * @LastEditTime: 2023-10-17 21:12:09
  * @LastEditors: Jackie
  * @Description: routers
  * @FilePath: /my-anniversary-vue/src/router/index.js
@@ -23,8 +23,8 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(process.env.BASE_URL),
-  // history: createWebHistory(process.env.BASE_URL),
+  // history: createWebHashHistory(process.env.BASE_URL),
+  history: createWebHistory(process.env.BASE_URL),
   routes
 });
 
