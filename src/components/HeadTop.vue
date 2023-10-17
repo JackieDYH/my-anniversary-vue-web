@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:32:40
- * @LastEditTime: 2023-10-17 17:42:17
+ * @LastEditTime: 2023-10-17 18:21:14
  * @LastEditors: Jackie
  * @Description: 顶部时间显示区域
  * @FilePath: /my-anniversary-vue/src/components/HeadTop.vue
@@ -30,7 +30,7 @@ const getDateTime = () => {
   D.value = day[0];
   T.value = day[1];
   W.value = '星期' + week[day2];
-  console.log(day);
+  // console.log(day);
 };
 
 onMounted(() => {

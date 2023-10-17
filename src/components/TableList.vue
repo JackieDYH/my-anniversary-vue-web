@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:37:47
- * @LastEditTime: 2023-10-17 18:09:19
+ * @LastEditTime: 2023-10-17 18:25:15
  * @LastEditors: Jackie
  * @Description: 表格
  * @FilePath: /my-anniversary-vue/src/components/TableList.vue
@@ -57,6 +57,17 @@
 
 <script setup>
 import { ref } from 'vue';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+const getTime = () => {
+  dayjs.extend(relativeTime);
+
+  const a = dayjs('1997-12-28').fromNow(true); // 22 年前
+  console.log('a', a);
+  console.log(dayjs().diff('1997-12-28', 'day'), '两个日期之间相差的天数');
+};
+getTime();
+
 const tableColumn = ref([
   {
     label: '序号',
