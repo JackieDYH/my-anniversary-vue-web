@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:32:40
- * @LastEditTime: 2023-10-17 18:21:14
+ * @LastEditTime: 2023-10-17 20:19:12
  * @LastEditors: Jackie
  * @Description: 顶部时间显示区域
  * @FilePath: /my-anniversary-vue/src/components/HeadTop.vue
@@ -25,7 +25,7 @@ const T = ref('');
 const W = ref('');
 const week = ['日', '一', '二', '三', '四', '五', '六'];
 const getDateTime = () => {
-  const day = dayjs().format('YYYY-DD-MM HH:mm:ss').split(' ');
+  const day = dayjs().format('YYYY-MM-DD HH:mm:ss').split(' ');
   const day2 = dayjs().day();
   D.value = day[0];
   T.value = day[1];

@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:37:47
- * @LastEditTime: 2023-10-17 18:25:15
+ * @LastEditTime: 2023-10-17 20:45:01
  * @LastEditors: Jackie
  * @Description: 表格
  * @FilePath: /my-anniversary-vue/src/components/TableList.vue
@@ -13,7 +13,8 @@
       <div class="title">
         <h1>事件记录📝</h1>
       </div>
-      <el-table :data="tableData" border style="width: 100%">
+      <!-- border -->
+      <el-table class="table-style" :data="tableData" style="width: 100%">
         <template v-for="column in tableColumn">
           <el-table-column
             v-if="column.isShow"
@@ -43,6 +44,10 @@
                   <!-- {{ (page - 1) * pageSize + scope.$index + 1 }} -->
                 </span>
               </div>
+              <div v-if="column.prop == 'how_long'">
+                <!-- 距今多久 -->
+                <span> {{ howDay(scope.row.start_time) }} 天 </span>
+              </div>
             </template>
           </el-table-column>
         </template>
@@ -56,17 +61,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-const getTime = () => {
-  dayjs.extend(relativeTime);
+import MyData from '@/utils/MyData.json';
+// const getTime = (start) => {
+//   dayjs.extend(relativeTime);
+//   // const a = dayjs('1997-12-28').fromNow(true); // 22 年前
+//   // console.log('a', a);
+//   // console.log(dayjs().diff('1997-12-28', 'day'), '两个日期之间相差的天数');
+//   return dayjs().diff(start, 'day');
+// };
+// getTime();
 
-  const a = dayjs('1997-12-28').fromNow(true); // 22 年前
-  console.log('a', a);
-  console.log(dayjs().diff('1997-12-28', 'day'), '两个日期之间相差的天数');
-};
-getTime();
+const howDay = computed(() => (start) => {
+  dayjs.extend(relativeTime);
+  return dayjs().diff(start, 'day');
+});
 
 const tableColumn = ref([
   {
@@ -81,7 +92,15 @@ const tableColumn = ref([
     label: '标题',
     prop: 'title',
     fixed: false,
-    width: 60,
+    width: 100,
+    isShow: true,
+    align: 'center'
+  },
+  {
+    label: '概述',
+    prop: 'content',
+    fixed: false,
+    width: 230,
     isShow: true,
     align: 'center'
   },
@@ -89,15 +108,7 @@ const tableColumn = ref([
     label: '类型',
     prop: 'type',
     fixed: false,
-    width: 60,
-    isShow: true,
-    align: 'center'
-  },
-  {
-    label: '概述',
-    prop: 'over',
-    fixed: false,
-    width: 60,
+    width: 90,
     isShow: true,
     align: 'center'
   },
@@ -105,7 +116,7 @@ const tableColumn = ref([
     label: '开始时间',
     prop: 'start_time',
     fixed: false,
-    width: 60,
+    width: 80,
     isShow: true,
     align: 'center'
   },
@@ -113,33 +124,12 @@ const tableColumn = ref([
     label: '距今多久',
     prop: 'how_long',
     fixed: false,
-    width: 60,
+    width: 80,
     isShow: true,
     align: 'center'
   }
 ]);
-const tableData = [
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
-  }
-];
+const tableData = ref(MyData);
 </script>
 
 <style lang="scss" scoped>
@@ -157,6 +147,56 @@ const tableData = [
       font-size: 24px;
       font-weight: 600;
       margin-bottom: 20px;
+    }
+    /*表格样式  */
+    .table-style {
+      :deep(.el-table__header) {
+        .el-table__cell {
+          height: 50px;
+          color: #5f6062;
+        }
+      }
+      /* $gray-bg: #f5f5f5;
+      --el-table-border: none;
+      :deep(.el-table__header) {
+        .el-table__cell {
+          padding: 0;
+          height: 49px;
+          background: $gray-bg;
+          font-weight: 400;
+          color: #868e9b;
+
+          &.ascending {
+            .caret-wrapper {
+              .sort-caret.ascending {
+                border-bottom-color: #0ecb81;
+              }
+            }
+          }
+
+          &.descending {
+            .caret-wrapper {
+              .sort-caret.descending {
+                border-top-color: #0ecb81;
+              }
+            }
+          }
+        }
+      } */
+
+      /* :deep(.el-table__body) {
+        .el-table__row:nth-child(2n) {
+          background: $gray-bg;
+        }
+
+        .el-table__cell {
+          padding: 0;
+          height: 88px;
+          font-family: DIN-Medium, arial, sans-serif;
+          font-size: 18px;
+          color: #000;
+        }
+      } */
     }
   }
 }
