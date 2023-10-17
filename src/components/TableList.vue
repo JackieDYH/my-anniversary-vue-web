@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:37:47
- * @LastEditTime: 2023-10-17 20:45:01
+ * @LastEditTime: 2023-10-17 21:19:37
  * @LastEditors: Jackie
  * @Description: 表格
  * @FilePath: /my-anniversary-vue/src/components/TableList.vue
@@ -138,9 +138,9 @@ const tableData = ref(MyData);
   justify-content: center;
   /* flex-direction: column; */
   padding: 20px 0;
+  min-height: 100vh;
   .table {
     width: 1200px;
-    min-height: 600px;
     .title {
       color: #000;
       font-family: PingFang SC;

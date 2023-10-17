@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:32:40
- * @LastEditTime: 2023-10-17 20:19:12
+ * @LastEditTime: 2023-10-17 21:21:03
  * @LastEditors: Jackie
  * @Description: 顶部时间显示区域
  * @FilePath: /my-anniversary-vue/src/components/HeadTop.vue
@@ -61,14 +61,14 @@ onUnmounted(() => {
   .time {
     color: rgb(255, 255, 255);
     line-height: 120px;
-    font-size: 120px;
+    font-size: 160px;
     padding-bottom: 16px;
     text-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
   }
   .date {
     padding-bottom: 16px;
     vertical-align: baseline;
-    font-size: 20px;
+    font-size: 40px;
     color: #fff;
     line-height: 1.5;
   }
