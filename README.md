@@ -1,6 +1,6 @@
 # my-anniversary-vue-web - 我的纪念日倒计时 Vue3 Web 版本 - By JackieDYH 202310
 
-- [在线体验 👀](https://jackiedyh.github.io/Wooden-Fish-Vue-Web/)
+- [在线体验 👀](https://jackiedyh.github.io/my-anniversary-vue-web/)
 
 ```
 npm install pinia
