@@ -5,6 +5,29 @@
 ```
 npm install pinia
 npm i pinia-plugin-persist //数据持久化
+
+npm install element-plus --save
+npm install -D unplugin-vue-components unplugin-auto-import//自动导入
+配置
+const AutoImport = require('unplugin-auto-import/webpack');
+const Components = require('unplugin-vue-components/webpack');
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
+const { defineConfig } = require('@vue/cli-service');
+module.exports = defineConfig({
+  configureWebpack: {
+    plugins: [
+      AutoImport({
+        resolvers: [ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()]
+      })
+    ]
+  },
+  transpileDependencies: true,
+  ...
+});
+
 ```
 
 ## Project setup

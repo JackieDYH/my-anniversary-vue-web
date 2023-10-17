@@ -1,14 +1,27 @@
 /*
  * @Author: Jackie
  * @Date: 2023-06-25 09:58:10
- * @LastEditTime: 2023-10-13 16:52:37
+ * @LastEditTime: 2023-10-17 15:34:02
  * @LastEditors: Jackie
  * @Description: file content
  * @FilePath: /my-anniversary-vue/vue.config.js
- * @version: 
+ * @version:
  */
+const AutoImport = require('unplugin-auto-import/webpack');
+const Components = require('unplugin-vue-components/webpack');
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
 const { defineConfig } = require('@vue/cli-service');
 module.exports = defineConfig({
+  configureWebpack: {
+    plugins: [
+      AutoImport({
+        resolvers: [ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()]
+      })
+    ]
+  },
   transpileDependencies: true,
   // 如果在将 Vue 项目打包发布到 GitHub Pages 后，资源请求报 404 错误，可能是由于以下原因导致的：
   // 公共路径配置错误：请确保在项目的 vue.config.js 文件中正确配置了公共路径。公共路径应该与你在 GitHub Pages 上托管项目的路径相对应。例如，如果你的项目托管在 https://jackiedyh.github.io/Wooden-Fish-Vue-Web/，则公共路径应设置为 '/Wooden-Fish-Vue-Web/'。

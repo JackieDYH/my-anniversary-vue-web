@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-06-25 09:58:10
- * @LastEditTime: 2023-10-13 17:01:10
+ * @LastEditTime: 2023-10-17 15:38:12
  * @LastEditors: Jackie
  * @Description: home
  * @FilePath: /my-anniversary-vue/src/views/Home.vue
@@ -9,6 +9,7 @@
 -->
 <template>
   <div class="home">1123</div>
+  <el-button type="primary">Primary</el-button>
 </template>
 
 <script setup>
