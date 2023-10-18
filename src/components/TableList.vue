@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:37:47
- * @LastEditTime: 2023-10-17 21:19:37
+ * @LastEditTime: 2023-10-18 11:07:04
  * @LastEditors: Jackie
  * @Description: 表格
  * @FilePath: /my-anniversary-vue/src/components/TableList.vue
@@ -23,6 +23,7 @@
             :fixed="column.fixed"
             :align="column.align"
             :label="column.label"
+            :width="column.width"
           >
             <!-- :width="column.width" -->
             <!-- :label="column.label" -->
@@ -43,6 +44,10 @@
                   {{ scope.$index + 1 }}
                   <!-- {{ (page - 1) * pageSize + scope.$index + 1 }} -->
                 </span>
+              </div>
+              <div v-if="column.prop == 'type'">
+                <!-- 类型 -->
+                <el-tag>{{ scope.row.type }}</el-tag>
               </div>
               <div v-if="column.prop == 'how_long'">
                 <!-- 距今多久 -->
@@ -92,23 +97,23 @@ const tableColumn = ref([
     label: '标题',
     prop: 'title',
     fixed: false,
-    width: 100,
+    width: 220,
     isShow: true,
-    align: 'center'
+    align: 'left'
   },
   {
     label: '概述',
     prop: 'content',
     fixed: false,
-    width: 230,
+    width: 358,
     isShow: true,
-    align: 'center'
+    align: 'left'
   },
   {
     label: '类型',
     prop: 'type',
     fixed: false,
-    width: 90,
+    width: 110,
     isShow: true,
     align: 'center'
   },
@@ -116,7 +121,7 @@ const tableColumn = ref([
     label: '开始时间',
     prop: 'start_time',
     fixed: false,
-    width: 80,
+    width: 200,
     isShow: true,
     align: 'center'
   },
@@ -124,7 +129,7 @@ const tableColumn = ref([
     label: '距今多久',
     prop: 'how_long',
     fixed: false,
-    width: 80,
+    width: 200,
     isShow: true,
     align: 'center'
   }
@@ -140,7 +145,10 @@ const tableData = ref(MyData);
   padding: 20px 0;
   min-height: 100vh;
   .table {
-    width: 1200px;
+    width: 60%;
+    @media (max-width: 768px) {
+      width: 90%;
+    }
     .title {
       color: #000;
       font-family: PingFang SC;
