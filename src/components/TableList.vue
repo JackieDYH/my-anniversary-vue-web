@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:37:47
- * @LastEditTime: 2023-10-19 16:49:45
+ * @LastEditTime: 2023-10-19 21:01:54
  * @LastEditors: Jackie
  * @Description: 表格
  * @FilePath: /my-anniversary-vue/src/components/TableList.vue
@@ -11,7 +11,7 @@
   <div class="table-box">
     <div class="table">
       <div class="title">
-        <h1 @click="showEye">事件记录📝(调试数据📊)</h1>
+        <h1 @click="showEye">事件记录📝📊</h1>
       </div>
       <!-- border -->
       <el-table class="table-style" :data="tableData" style="width: 100%">
