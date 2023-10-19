@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:37:47
- * @LastEditTime: 2023-10-18 11:07:04
+ * @LastEditTime: 2023-10-19 16:49:45
  * @LastEditors: Jackie
  * @Description: 表格
  * @FilePath: /my-anniversary-vue/src/components/TableList.vue
@@ -11,7 +11,7 @@
   <div class="table-box">
     <div class="table">
       <div class="title">
-        <h1>事件记录📝</h1>
+        <h1 @click="showEye">事件记录📝(调试数据📊)</h1>
       </div>
       <!-- border -->
       <el-table class="table-style" :data="tableData" style="width: 100%">
@@ -66,10 +66,15 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, defineEmits } from 'vue';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import MyData from '@/utils/MyData.json';
+
+const emits = defineEmits(['showBtn']);
+const showEye = () => {
+  emits('showBtn');
+};
 // const getTime = (start) => {
 //   dayjs.extend(relativeTime);
 //   // const a = dayjs('1997-12-28').fromNow(true); // 22 年前
