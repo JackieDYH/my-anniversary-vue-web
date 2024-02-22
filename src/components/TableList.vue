@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:37:47
- * @LastEditTime: 2023-10-19 21:01:54
+ * @LastEditTime: 2024-02-21 18:30:59
  * @LastEditors: Jackie
  * @Description: 表格
  * @FilePath: /my-anniversary-vue/src/components/TableList.vue
@@ -41,7 +41,8 @@
               <div v-if="column.prop == 'xh'">
                 <!-- 序号 -->
                 <span>
-                  {{ scope.$index + 1 }}
+                  {{ tableData.length - scope.$index }}
+                  <!-- {{ scope.$index + 1 }} -->
                   <!-- {{ (page - 1) * pageSize + scope.$index + 1 }} -->
                 </span>
               </div>
