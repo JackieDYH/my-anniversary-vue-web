@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:37:47
- * @LastEditTime: 2024-02-21 18:30:59
+ * @LastEditTime: 2024-02-28 14:50:17
  * @LastEditors: Jackie
  * @Description: 表格
  * @FilePath: /my-anniversary-vue/src/components/TableList.vue
@@ -46,6 +46,15 @@
                   <!-- {{ (page - 1) * pageSize + scope.$index + 1 }} -->
                 </span>
               </div>
+              <div v-if="column.prop == 'title'">
+                <span>{{ scope.row.title }}</span>
+                <img
+                  v-if="sameDay(scope.row.start_time)"
+                  src="@/assets/images/time-2.svg"
+                  alt="time"
+                  class="remind"
+                />
+              </div>
               <div v-if="column.prop == 'type'">
                 <!-- 类型 -->
                 <el-tag>{{ scope.row.type }}</el-tag>
@@ -85,9 +94,26 @@ const showEye = () => {
 // };
 // getTime();
 
+/**
+ * 距今多久
+ */
 const howDay = computed(() => (start) => {
   dayjs.extend(relativeTime);
   return dayjs().diff(start, 'day');
+});
+
+/**
+ * 是否是今天
+ */
+const sameDay = computed(() => (start) => {
+  // 输入日期
+  const inputDayjs = dayjs(start);
+  // 当前日期
+  const today = dayjs();
+  // 比较当前日期和传入日期的月份和天是否相同
+  const isToday =
+    today.date() === inputDayjs.date() && today.month() === inputDayjs.month();
+  return isToday;
 });
 
 const tableColumn = ref([
@@ -169,6 +195,11 @@ const tableData = ref(MyData);
           height: 50px;
           color: #5f6062;
         }
+      }
+      .remind {
+        width: 10%;
+        transform: rotate(45deg);
+        margin-left: 6px;
       }
       /* $gray-bg: #f5f5f5;
       --el-table-border: none;
