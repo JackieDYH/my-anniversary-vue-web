@@ -1,10 +1,10 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:37:47
- * @LastEditTime: 2024-02-28 14:50:17
+ * @LastEditTime: 2024-07-10 16:14:04
  * @LastEditors: Jackie
  * @Description: 表格
- * @FilePath: /my-anniversary-vue/src/components/TableList.vue
+ * @FilePath: /my-anniversary-vue-web/src/components/TableList.vue
  * @version: 
 -->
 <template>
@@ -77,6 +77,7 @@
 
 <script setup>
 import { ref, computed, defineEmits } from 'vue';
+defineOptions({ name: 'TableList' });
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import MyData from '@/utils/MyData.json';
@@ -97,7 +98,7 @@ const showEye = () => {
 /**
  * 距今多久
  */
-const howDay = computed(() => (start) => {
+const howDay = computed(() => start => {
   dayjs.extend(relativeTime);
   return dayjs().diff(start, 'day');
 });
@@ -105,14 +106,13 @@ const howDay = computed(() => (start) => {
 /**
  * 是否是今天
  */
-const sameDay = computed(() => (start) => {
+const sameDay = computed(() => start => {
   // 输入日期
   const inputDayjs = dayjs(start);
   // 当前日期
   const today = dayjs();
   // 比较当前日期和传入日期的月份和天是否相同
-  const isToday =
-    today.date() === inputDayjs.date() && today.month() === inputDayjs.month();
+  const isToday = today.date() === inputDayjs.date() && today.month() === inputDayjs.month();
   return isToday;
 });
 

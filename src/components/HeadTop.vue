@@ -1,10 +1,10 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-17 17:32:40
- * @LastEditTime: 2023-10-17 21:21:03
+ * @LastEditTime: 2024-07-10 16:13:25
  * @LastEditors: Jackie
  * @Description: 顶部时间显示区域
- * @FilePath: /my-anniversary-vue/src/components/HeadTop.vue
+ * @FilePath: /my-anniversary-vue-web/src/components/HeadTop.vue
  * @version: 
 -->
 <template>
@@ -17,6 +17,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue';
+defineOptions({ name: 'HeadTop' });
 import dayjs from 'dayjs';
 
 let Times = '';
@@ -95,8 +96,7 @@ onUnmounted(() => {
       opacity: 0.2;
       width: 100%;
       height: 100%;
-      background: radial-gradient(transparent 50%, black),
-        linear-gradient(transparent, black);
+      background: radial-gradient(transparent 50%, black), linear-gradient(transparent, black);
     }
     /* display: block;
       opacity: 1;

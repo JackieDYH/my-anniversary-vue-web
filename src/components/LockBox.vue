@@ -1,10 +1,10 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-10-19 16:23:19
- * @LastEditTime: 2023-10-19 16:47:50
+ * @LastEditTime: 2024-07-10 16:13:35
  * @LastEditors: Jackie
  * @Description: Lock 校验页面
- * @FilePath: /my-anniversary-vue/src/components/LockBox.vue
+ * @FilePath: /my-anniversary-vue-web/src/components/LockBox.vue
  * @version: 
 -->
 <template>
@@ -64,7 +64,7 @@
 
 <script setup>
 import { ref, defineEmits } from 'vue';
-
+defineOptions({ name: 'LockBox' });
 const emits = defineEmits(['showBtn']);
 const num = ref(0);
 const showEye = () => {

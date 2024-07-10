@@ -1,10 +1,10 @@
 <!--
  * @Author: Jackie
  * @Date: 2023-08-07 18:21:45
- * @LastEditTime: 2023-08-09 20:11:19
+ * @LastEditTime: 2024-07-10 16:13:48
  * @LastEditors: Jackie
  * @Description: 导航
- * @FilePath: /Wooden-Fish-Vue-Web/src/components/NavBar.vue
+ * @FilePath: /my-anniversary-vue-web/src/components/NavBar.vue
  * @version: 
 -->
 <template>
@@ -12,16 +12,8 @@
   <!-- -{{ meritValue }}-{{ getMerit }} -->
   <div class="navbar">
     <img src="@/assets/images/muyu.png" class="but" @click="goPath('/')" />
-    <img
-      src="@/assets/images/shaoxiang.png"
-      class="but"
-      @click="goPath('/shaoxiang')"
-    />
-    <img
-      src="@/assets/images/qiuqian.png"
-      class="but"
-      @click="goPath('/qiuqian')"
-    />
+    <img src="@/assets/images/shaoxiang.png" class="but" @click="goPath('/shaoxiang')" />
+    <img src="@/assets/images/qiuqian.png" class="but" @click="goPath('/qiuqian')" />
     <img src="@/assets/images/yinyue.png" class="but" @click="music" />
   </div>
   <!--背景音乐大悲咒-->
@@ -32,6 +24,7 @@
 
 <script setup>
 import { onMounted, computed, reactive, ref } from 'vue';
+defineOptions({ name: 'NavBar' });
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '@/store/user';
@@ -53,7 +46,7 @@ const music = () => {
     audioElement.value.pause();
   }
 };
-const goPath = (path) => {
+const goPath = path => {
   router.push(path);
 };
 </script>
